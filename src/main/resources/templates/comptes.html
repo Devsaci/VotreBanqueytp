@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" 
 xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5" 
 layout:decorator="template1">
 <head>
 <meta charset="utf-8" />
@@ -72,6 +73,7 @@ layout:decorator="template1">
 
 
 <div class="col-md-6">
+<div sec:authorize="hasRole('ROLE_ADMIN')">
 <div class="panel panel-primary" th:if="${compte}">
 <div class="panel-heading">Operation sur le compte</div>
 <div class="panel-body">
@@ -111,7 +113,7 @@ layout:decorator="template1">
 
 </div>
 </div>
-
+</div>
 
 <div class="panel panel-primary" th:if="${compte}">
 <div class="panel-heading"> Liste des Operations </div>
